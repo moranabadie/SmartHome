@@ -102,3 +102,12 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+.pydevproject
+.project
+celerybeat-schedule.*
+celerybeat.pid
+dump.rdb
+
+*/migrations/*
+!*/migrations/__init__.py
