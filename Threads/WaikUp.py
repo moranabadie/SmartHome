@@ -29,6 +29,7 @@ def waik_up_process():
         if r.date.hour == now.hour and r.date.minute == now.minute:
             print("La date est ok")
             waik_up_speaker(now)
+            print("La date est ok : end")
 
 def waik_up_speaker(now):
     ENGINE.say(BJR[random.randint(0,len(BJR)-1)] +" !")
