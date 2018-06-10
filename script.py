@@ -20,7 +20,9 @@ def waik_up_speaker(now):
     for voice in voices:
         if "french" in str(voice):
             ENGINE.setProperty('voice', voice.id)
-            print("to french")
+            
+            ENGINE.say("J'aime faire des trucs")
+            ENGINE.runAndWait()
             break
         
     
