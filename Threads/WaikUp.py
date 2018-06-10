@@ -34,8 +34,13 @@ def waik_up_process():
 
 def waik_up_speaker(now):
     ENGINE = pyttsx3.init()
-    print("La date est ok : str")
+    print("La date est ok : str 0")
+    ENGINE.say('test')
+    print("La date est ok : str 0.2")
+    ENGINE.runAndWait()
+    print("La date est ok : str 0.3")
     ENGINE.say(BJR[random.randint(0,len(BJR)-1)] +" !")
+    print("La date est ok : str 1")
     ENGINE.runAndWait()
     print("La date est ok : str 2")
     time.sleep(0.2)
