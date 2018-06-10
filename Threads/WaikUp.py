@@ -32,8 +32,10 @@ def waik_up_process():
             print("La date est ok : end")
 
 def waik_up_speaker(now):
+    print("La date est ok : str")
     ENGINE.say(BJR[random.randint(0,len(BJR)-1)] +" !")
     ENGINE.runAndWait()
+    print("La date est ok : str 2")
     time.sleep(0.2)
     ENGINE.say(REVEIL[random.randint(0,len(REVEIL)-1)] +" !")
     ENGINE.runAndWait() 
