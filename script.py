@@ -52,7 +52,7 @@ def waik_up_speaker(now):
     if os.name == 'nt':
         os.system("cmdmp3.exe welcome.mp3")
     else:
-        os.system("mpg123 welcome.mp3")
+        os.system("mpg123 welcome.mp3 --volume=65536")
 if __name__ == "__main__":
     now = datetime.datetime.now()
     waik_up_speaker(now)
