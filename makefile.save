@@ -1,0 +1,4 @@
+all :
+		git pull
+	python3 manage.py runserver 0.0.0.0:8000 &
+	redis-server & sleep 1 &  celery -A SmartHome worker -l info & celery -A SmartHome beat -l info
