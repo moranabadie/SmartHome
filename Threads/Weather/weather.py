@@ -33,7 +33,7 @@ def auxWeather(l):
             return "Il fera beau"     
     return ""
     
-def weather(engine):
+def weather(mytext):
     r = requests.get("http://api.openweathermap.org/data/2.5/forecast?id=" \
                  +ID_city + "&appid=" \
                  +Id_user)
@@ -74,31 +74,23 @@ def weather(engine):
            
     matin = auxWeather(matin)
     if matin !="":
-        engine.say(matin +" ce matin")
-        engine.runAndWait()
-        time.sleep(0.2)
+        mytext += matin +" ce matin"
     aprem = auxWeather(aprem)
     if aprem !="":
-        engine.say(aprem +" cette après-midi")
-        engine.runAndWait()
-        time.sleep(0.2)
+        mytext += aprem +" cette après-midi"
+        
     soir = auxWeather(soir)
     if soir !="":
-        engine.say(soir +" ce soir")
-        engine.runAndWait()
-        time.sleep(0.2)
-        
+        mytext += soir +" ce soir"
+       
     if matin_t != None:
-        engine.say("Ce matin, il fera " + str(matin_t) + " degré" )
-        engine.runAndWait()
-        time.sleep(0.2)
+        mytext += "Ce matin, il fera " + str(matin_t) + " degré" 
+      
         
     if aprem_t != None:
-        engine.say("Cet après-midi, il fera " + str(aprem_t) + " degré" )
-        engine.runAndWait()
-        time.sleep(0.2)
+        mytext += "Cet après-midi, il fera " + str(aprem_t) + " degré" 
+      
     if soir_t != None:
-        engine.say("Et ce soir, il fera " + str(soir_t) + " degré" )
-        engine.runAndWait()
-        time.sleep(0.2)
+        mytext += "Et ce soir, il fera " + str(soir_t) + " degré" 
+    return mytext
         

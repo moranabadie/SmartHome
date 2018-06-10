@@ -3,7 +3,7 @@ import time
 import requests
 
 RANDOMPLUS = ["", "LOL", "MDR", "C'est très drôle non ?", "XPTDR"]
-def read_daily(engine):
+def read_daily(mytext):
     try:
         r = requests.get("http://www.une-blague.com/la-blague-du-jour.html")
     except:
@@ -17,12 +17,10 @@ def read_daily(engine):
             croped = "Je vais vous raconter une blague que j'ai trouvé sur internet. " + croped
             
             time.sleep(0.8)
-            engine.say(croped)
-            engine.runAndWait()
-            time.sleep(0.2)
-            engine.say(RANDOMPLUS[random.randint(0,len(RANDOMPLUS)-1)] +".")
-            engine.runAndWait()
+            mytext += croped
+           
+            mytext += RANDOMPLUS[random.randint(0,len(RANDOMPLUS)-1)] +"."
             time.sleep(0.4)
-            return 0
+            return mytext
     return 1
 

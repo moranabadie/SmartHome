@@ -1,8 +1,8 @@
 import datetime
 import random
-import time
 
-import pyttsx3
+
+from gtts.tts import gTTS
 
 from Threads.Anec.readDailyAnec import read_anec
 from Threads.Anec.readDailyJoke import read_daily
@@ -15,40 +15,44 @@ REVEIL = ["Il faut se lever ! ", \
           "On se reveil plus vite que ça.",\
            "Toi même tu sais il faut se lever.", "On se reveil", "Debout"]
 def waik_up_speaker(now):
-    ENGINE = pyttsx3.init()
-    voices = ENGINE.getProperty('voices')
-    for voice in voices:
-        if "french" in str(voice):
-            ENGINE.setProperty('voice', voice.id)
-            
-            ENGINE.say("J'aime faire des trucs")
-            ENGINE.runAndWait()
-            break
-        
+    import os
+ 
+    # The text that you want to convert to audio
+     
+    # Language in which you want to convert
+    language = 'fr'
+     
+    # Passing the text and language to the engine, 
+    # here we have marked slow=False. Which tells 
+    # the module that the converted audio should 
+    # have a high speed
+    
+     
+    # Saving the converted audio in a mp3 file named
+    # welcome 
+
     
     print("La date est ok : str 0")
-    ENGINE.say(BJR[random.randint(0,len(BJR)-1)] +" !")
-    print("La date est ok : str 1")
-    ENGINE.runAndWait()
-    print("La date est ok : str 2")
-    time.sleep(0.2)
-    ENGINE.say(REVEIL[random.randint(0,len(REVEIL)-1)] +" !")
-    ENGINE.runAndWait() 
-    time.sleep(0.2)
-    ENGINE.say("Il est "+ str(now.hour) + " heure et " + str(now.minute) + " minutes")
-    ENGINE.runAndWait() 
-    print("La date est ok : str 3")
-    time.sleep(0.2)
-    weather(ENGINE)
-    print("La date est ok : str 4")
-    time.sleep(0.2)
-    ENGINE.runAndWait()
+    mytext = BJR[random.randint(0,len(BJR)-1)] +" !"
+    mytext +=REVEIL[random.randint(0,len(REVEIL)-1)] +" !"
+   
+    mytext +="Il est "+ str(now.hour) + " heure et " + str(now.minute) + " minutes"
+    
+    mytext = weather(mytext)
+   
     print("La date est ok : str 5")
-    read_anec(ENGINE)
+    mytext = read_anec(mytext)
     print("La date est ok : str 6")
-    read_daily(ENGINE)
+    mytext = read_daily(mytext)
     print("La date est ok : str 7")
-
+    myobj = gTTS(text=mytext, lang=language, slow=False)
+    myobj.save("welcome.mp3")
+     
+    # Playing the converted file
+    if os.name == 'nt':
+        os.system("cmdmp3.exe welcome.mp3")
+    else:
+        os.system("mpg123 welcome.mp3")
 if __name__ == "__main__":
     now = datetime.datetime.now()
     waik_up_speaker(now)
