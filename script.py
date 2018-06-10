@@ -16,6 +16,12 @@ REVEIL = ["Il faut se lever ! ", \
            "Toi même tu sais il faut se lever.", "On se reveil", "Debout"]
 def waik_up_speaker(now):
     ENGINE = pyttsx3.init()
+    voices = ENGINE.getProperty('voices')
+    for voice in voices:
+        if "french" in str(voice):
+            ENGINE.setProperty('voice', voice.id)
+        
+    
     print("La date est ok : str 0")
     ENGINE.say(BJR[random.randint(0,len(BJR)-1)] +" !")
     print("La date est ok : str 1")

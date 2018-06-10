@@ -15,7 +15,5 @@ def home(request):
         n = str(n.date)
     
     
-    voices = ENGINE.getProperty('voices')
-    for voice in voices:
-        print(voice)
+    
     return render(request, 'home.html',{"t" : t, "n" : n})
