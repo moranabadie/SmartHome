@@ -52,7 +52,7 @@ def waik_up_speaker(now):
     if os.name == 'nt':
         os.system("cmdmp3.exe welcome.mp3")
     else:
-        os.system("amixer set PCM -- 100%")
+        os.system("amixer set PCM -- 80%")
         os.system("mpg123 welcome.mp3")
 if __name__ == "__main__":
     now = datetime.datetime.now()
