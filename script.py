@@ -20,6 +20,8 @@ def waik_up_speaker(now):
     for voice in voices:
         if "french" in str(voice):
             ENGINE.setProperty('voice', voice.id)
+            print("to french")
+            break
         
     
     print("La date est ok : str 0")
