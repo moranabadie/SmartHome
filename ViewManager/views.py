@@ -1,11 +1,13 @@
 
 from django.shortcuts import render
 
-from ViewManager.models import Reveil
+from ViewManager.models import Reveil, Last
 
 
 # Create your views here.
 def home(request):
     t = Reveil.objects.all()
-    
-    return render(request, 'home.html',{"t" : t})
+    n = Last.objects.first()
+    if n == None:
+        n = "Never"
+    return render(request, 'home.html',{"t" : t, "n" : n})

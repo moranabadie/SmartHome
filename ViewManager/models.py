@@ -4,3 +4,5 @@ from django.db import models
 
 class Reveil(models.Model):
     date = models.TimeField(auto_now=False, )
+class Last(models.Model):
+    date = models.TimeField(auto_now=True, )
