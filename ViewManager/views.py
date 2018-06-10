@@ -12,4 +12,5 @@ def home(request):
         n = "Never"
     else:
         str(n.date)
+    n = "tests"
     return render(request, 'home.html',{"t" : t, "n" : n})
