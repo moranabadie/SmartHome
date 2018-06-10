@@ -16,4 +16,5 @@ def some_task():
         n = Last()
         n.save()
     n.date = datetime.datetime.now()
+    n.save()
     waik_up_process()

@@ -11,5 +11,5 @@ def home(request):
     if n == None:
         n = "Never"
     else:
-        n.date
+        str(n.date)
     return render(request, 'home.html',{"t" : t, "n" : n})
