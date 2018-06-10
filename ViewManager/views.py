@@ -1,5 +1,7 @@
+
 from django.shortcuts import render
 
+from SmartHome.settings import ENGINE
 from ViewManager.models import Reveil, Last
 
 
@@ -11,4 +13,9 @@ def home(request):
         n = "Never"
     else:
         n = str(n.date)
+    
+    
+    voices = ENGINE.getProperty('voices')
+    for voice in voices:
+        print(voice)
     return render(request, 'home.html',{"t" : t, "n" : n})

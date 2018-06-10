@@ -3,6 +3,7 @@ import datetime
 from celery.schedules import crontab
 from celery.task.base import periodic_task
 
+from SmartHome.settings import ENGINE
 from Threads.WaikUp import waik_up_process
 from ViewManager.models import Last
 
@@ -11,6 +12,7 @@ from ViewManager.models import Last
 def some_task():
     # do something
     print("Check for date")
+    
     n = Last.objects.first()
     if n == None:
         n = Last()
