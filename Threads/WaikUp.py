@@ -27,6 +27,7 @@ def waik_up_process():
     
         now = datetime.datetime.now()
         if r.date.hour == now.hour and r.date.minute == now.minute:
+            print("La date est ok")
             waik_up_speaker(now)
 
 def waik_up_speaker(now):

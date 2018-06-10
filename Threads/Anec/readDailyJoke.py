@@ -15,6 +15,7 @@ def read_daily(engine):
         if len(splitt) > 0:
             croped = splitt[0].replace("<br>", "").replace("<br />", "").replace("<br >", "")
             croped = "Je vais vous raconter une blague que j'ai trouvé sur internet. " + croped
+            
             time.sleep(0.8)
             engine.say(croped)
             engine.runAndWait()
