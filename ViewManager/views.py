@@ -10,4 +10,6 @@ def home(request):
     n = Last.objects.first()
     if n == None:
         n = "Never"
+    else:
+        n.date
     return render(request, 'home.html',{"t" : t, "n" : n})
