@@ -1,7 +1,5 @@
-
 from django.shortcuts import render
 
-from SmartHome.settings import ENGINE
 from ViewManager.models import Reveil, Last
 
 
@@ -13,6 +11,4 @@ def home(request):
         n = "Never"
     else:
         n = str(n.date)
-    ENGINE.say('test')
-    ENGINE.runAndWait()
     return render(request, 'home.html',{"t" : t, "n" : n})

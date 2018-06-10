@@ -34,8 +34,8 @@ except:
         sys.exit('error read key')
 
 SECRET_KEY = sec
-ID_USER_WEATHER = os.environ['ID_USER_WEATHER']
-
+#ID_USER_WEATHER = os.environ['ID_USER_WEATHER']
+ID_USER_WEATHER = "f0b649bd38a937e091091572ae3b2d62"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
