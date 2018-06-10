@@ -2,7 +2,8 @@ import datetime
 import random
 import time
 
-from SmartHome.settings import ENGINE
+import pyttsx3
+
 from Threads.Anec.readDailyAnec import read_anec
 from Threads.Anec.readDailyJoke import read_daily
 from Threads.Weather.weather import weather
@@ -32,6 +33,7 @@ def waik_up_process():
             print("La date est ok : end")
 
 def waik_up_speaker(now):
+    ENGINE = pyttsx3.init()
     print("La date est ok : str")
     ENGINE.say(BJR[random.randint(0,len(BJR)-1)] +" !")
     ENGINE.runAndWait()
